@@ -7,10 +7,6 @@ const PRICES = {
   bg: { none: 0, simple: 10, detailed: 25 },
   extraCharacterRate: 0.25
 };
-// Para montar a prévia, adicione PNGs transparentes e informe os caminhos.
-// Ex.: "sketch-head-none": "images/preview/sketch/head-none.png"
-const PREVIEWS = {};
-
 const state = {style:"sketch",size:"head",color:"none",bg:"none"};
 const labels = {
   style:{sketch:"Sketch",lineart:"Lineart"},
@@ -18,24 +14,61 @@ const labels = {
   color:{none:"Sem cor",bw:"Preto e branco",color:"Colorido"},
   bg:{none:"Sem cenário",simple:"Cenário simples",detailed:"Cenário detalhado"}
 };
+const previewFiles = {
+  style:{sketch:"Sketch",lineart:"Lineart"},
+  size:{head:"headshot",half:"meio-corpo",full:"corpo-inteiro"},
+  color:{none:null,bw:"preto-e-branco",color:"colorido"},
+  bg:{simple:"simples",detailed:"detalhado"}
+};
 const brl = n => n.toLocaleString("pt-BR",{style:"currency",currency:"BRL"});
 const $ = id => document.getElementById(id);
 
 function updatePreview(){
-  const key = `${state.style}-${state.size}-${state.color}-${state.bg}`;
+  const styleFolder = previewFiles.style[state.style];
+  const colorFile = previewFiles.color[state.color];
   const paths = {
-    bg: PREVIEWS[`${state.bg}-${state.size}`],
-    base: PREVIEWS[`${state.style}-${state.size}`],
-    color: PREVIEWS[`color-${state.color}-${state.size}`],
-    style: PREVIEWS[key]
+    bg: previewFiles.bg[state.bg]
+      ? `imagens/calculadora/cenarios/${previewFiles.bg[state.bg]}/${colorFile || "sem-cor"}.png`
+      : null,
+    color: colorFile
+      ? `imagens/calculadora/${styleFolder}/cores/${colorFile}.png`
+      : null,
+    base: `imagens/calculadora/${styleFolder}/personagem.png`,
+    frame: `imagens/calculadora/${styleFolder}/enquadramento/${previewFiles.size[state.size]}.png`
   };
-  [["prevBg","bg"],["prevBase","base"],["prevColor","color"],["prevStyle","style"]].forEach(([id,k])=>{
-    const img=$(id), src=paths[k];
-    if(src){img.src=src;img.hidden=false;}else{img.hidden=true;img.removeAttribute("src");}
+  const images = [["prevBg","bg"],["prevColor","color"],["prevBase","base"],["prevFrame","frame"]];
+  images.forEach(([id,key])=>{
+    const img=$(id), src=paths[key], encodedSrc=src ? encodeURI(src) : null;
+    if(!encodedSrc){
+      img.hidden=true;
+      img.removeAttribute("src");
+      return;
+    }
+    if(img.getAttribute("src")===encodedSrc){
+      if(img.complete && img.naturalWidth>0) img.hidden=false;
+      return;
+    }
+    img.hidden=true;
+    img.onload=()=>{
+      if(img.getAttribute("src")!==encodedSrc) return;
+      img.hidden=false;
+      updatePreviewPlaceholder();
+    };
+    img.onerror=()=>{
+      if(img.getAttribute("src")!==encodedSrc) return;
+      img.hidden=true;
+      console.warn(`Imagem da prévia não encontrada: ${src}`);
+      updatePreviewPlaceholder();
+    };
+    img.src=encodedSrc;
   });
-  const hasPreview=Object.values(paths).some(Boolean);
-  document.querySelector(".preview-placeholder").style.display=hasPreview?"none":"block";
+  updatePreviewPlaceholder();
   $("previewDescription").textContent=[labels.style[state.style],labels.size[state.size],labels.color[state.color],labels.bg[state.bg]].join(" · ");
+}
+function updatePreviewPlaceholder(){
+  const character=$("#prevBase");
+  const hasCharacter=character && !character.hidden && character.complete && character.naturalWidth>0;
+  document.querySelector(".preview-placeholder").style.display=hasCharacter?"none":"block";
 }
 function calculate(){
   const base=PRICES[state.style][state.size];
