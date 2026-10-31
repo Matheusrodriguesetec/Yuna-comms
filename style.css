@@ -797,6 +797,26 @@ header {
     max-width: 560px;
 }
 
+.more-links-section {
+    padding: 0 0 56px;
+}
+
+.more-links-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 25px;
+    padding: 24px 30px;
+    border: 1px solid var(--line);
+    border-radius: 13px;
+    background: var(--accent-soft);
+}
+
+.more-links-card h2 {
+    margin: 5px 0 0;
+    font: 800 clamp(1.5rem, 3vw, 2rem)/1.2 Nunito;
+}
+
 
 /* ========================================
    15. RODAPÉ
@@ -1102,7 +1122,8 @@ footer {
         grid-template-columns: 1fr;
     }
 
-    .contact-box {
+    .contact-box,
+    .more-links-card {
         align-items: flex-start;
         flex-direction: column;
         padding: 22px;

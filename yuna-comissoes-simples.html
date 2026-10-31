@@ -74,12 +74,11 @@
       <div class="field"><div class="field-title">Coloração <small>Adicional</small></div><div class="choices" data-group="color"><button class="choice selected" data-value="none">Sem cor</button><button class="choice" data-value="bw">Preto e branco</button><button class="choice" data-value="color">Colorido</button></div></div>
       <div class="field"><div class="field-title">Cenário <small>Adicional</small></div><div class="choices" data-group="bg"><button class="choice selected" data-value="none">Sem cenário</button><button class="choice" data-value="simple">Simples</button><button class="choice" data-value="detailed">Detalhado</button></div></div>
       <div class="field"><div class="field-title">Personagens adicionais <small>Quantidade</small></div><div class="stepper"><input id="extras" type="number" min="0" max="5" value="0"><span class="muted">Além do personagem principal</span></div></div>
-      <div class="muted" style="font-size:.8rem">Tabela inicial editável no JavaScript. Confirme os valores antes de publicar.</div>
     </div>
     <div class="preview-box">
       <div class="panel">
         <div class="field-title">Prévia da composição <small>Demonstrativa</small></div>
-        <div class="preview-stage" id="previewStage"><div class="preview-placeholder"><strong>Sua comissão</strong><span>A prévia em camadas aparecerá aqui<br>quando você adicionar seus PNGs.</span></div>
+        <div class="preview-stage" id="previewStage"><div class="preview-placeholder"><strong>Sua comissão</strong><span>A prévia em camadas aparecerá aqui<br></span></div>
           <!-- Camadas opcionais: crie PNGs transparentes e configure os caminhos no objeto PREVIEWS no script. -->
           <img id="prevBg" alt="" hidden><img id="prevBase" alt="" hidden><img id="prevColor" alt="" hidden><img id="prevStyle" alt="" hidden>
         </div>
@@ -109,7 +108,7 @@
     <div class="policy"><h3 class="no">✕ Não aceito</h3><ul><li>Conteúdo NSFW (todos os tipos de conteúdo explícito/sensível)</li><li>Desenhos com IA</li><li>Imitação exata do estilo de outros artistas (inspiração permitida)</li><li>Fetichismo</li><li>Pedidos que envolvam conteúdo discriminatório ou de ódio</li></ul></div>
   </div>
   <div class="info-grid" style="margin-top:18px">
-    <article class="info-card"><div class="icon">↻</div><h3>Revisões</h3><p>Defina aqui quantas revisões estão incluídas e quais alterações podem ser solicitadas em cada etapa.</p></article>
+    <article class="info-card"><div class="icon">↻</div><h3>Revisões</h3><p>Se você ja recebeu sua arte mas quer alterar alguma coisa , entre em contato para discutir as possíveis mudanças (não costumo cobrar por isso antes da segunda vez).</p></article>
     <article class="info-card"><div class="icon">◷</div><h3>Prazo</h3><p>O prazo depende da complexidade e da fila de pedidos. Confirme a previsão antes de pagar.</p></article>
     <article class="info-card"><div class="icon">©</div><h3>Uso da arte</h3><p>As comissões são para uso pessoal. Uso comercial precisa ser combinado separadamente.</p></article>
   </div>
@@ -118,14 +117,15 @@
 <section class="section" id="pagamento"><div class="wrap">
   <div class="section-head"><div class="eyebrow">Pagamento e entrega</div><h2>Informações importantes<span style="color:var(--accent)">.</span></h2><p>Deixe tudo combinado antes do início da comissão.</p></div>
   <div class="payment">
-    <div class="payment-card"><span class="badge-note">Métodos aceitos</span><h3>Pix ou Robux</h3><p>O pagamento é combinado individualmente após a aprovação do orçamento. Insira aqui sua regra de sinal, parcelamento e conversão de Robux.</p></div>
+    <div class="payment-card"><span class="badge-note">Métodos aceitos</span><span class="badge-note">Comissões abertas atualmente</span><h3>Pix</h3><p>O pagamento é combinado individualmente após a aprovação do orçamento. No momento só esta opção esta disponível.</p></div>
     <div class="payment-card"><span class="badge-note">Entrega digital</span><h3>Arquivo em alta qualidade</h3><p>A arte final é enviada digitalmente. Combine previamente formato, resolução, fundo transparente e se haverá arquivo sem marca d'água.</p></div>
+    <div class="payment-card"><span class="badge-note">Aceitos com certas condições</span><h3>Reembolso</h3><p>Cancelamento e reembolso: Antes do início da arte, devolvo o valor pago. Após o início, desconto apenas as etapas já realizadas e devolvo o saldo. Se a arte não corresponder ao que combinamos, entre em contato para avaliarmos uma solução. Direitos previstos em lei são mantidos.</p></div>
   </div>
 </div></section>
 
 <section class="section" id="duvidas" style="background:var(--section-alt)"><div class="wrap faq">
   <div class="section-head"><div class="eyebrow">Perguntas frequentes</div><h2>Ficou com dúvida?</h2></div>
-  <details><summary>Como faço para pedir uma comissão?</summary><p>Use o contato indicado no final da página e envie uma descrição da ideia, referências visuais e o tipo de desenho desejado.</p></details>
+  <details><summary>Como faço para pedir uma comissão?</summary><p>Use o contato indicado no final da página (Discord) e envie uma descrição da ideia, quanto mais referências visuais melhor! E o tipo de desenho desejado.</p></details>
   <details><summary>O preço da calculadora é definitivo?</summary><p>Não. É uma estimativa. A complexidade, detalhes, acessórios e exigências específicas podem alterar o orçamento final.</p></details>
   <details><summary>Posso pedir alterações?</summary><p>As condições e a quantidade de revisões devem ser confirmadas antes do início do trabalho.</p></details>
   <details><summary>Você aceita pedidos urgentes?</summary><p>Disponibilidade e eventual taxa de urgência precisam ser confirmadas no contato.</p></details>
@@ -135,9 +135,13 @@
   <div><div class="eyebrow">Vamos criar algo?</div><h2>Sua ideia pode virar arte.</h2><p>Me envie sua ideia, referências e dúvidas. Vamos conversar sobre a comissão!</p></div>
   <a class="primary" id="contactButton" href="#" target="_blank" rel="noopener">Entrar em contato ↗</a>
 </div></div></section>
+<section class="more-links-section" aria-labelledby="more-links-title"><div class="wrap"><div class="more-links-card">
+  <div><div class="eyebrow">Me encontre por aí</div><h2 id="more-links-title">links de Yuna_S22</h2></div>
+  <a class="primary" href="https://guns.lol/yuna.luxx" target="_blank" rel="noopener noreferrer">Ver meus links ↗</a>
+</div></div></section>
 </main>
 <footer><div class="wrap footer-row"><div><a class="brand" href="#inicio">yuna<span>.</span></a><div style="font-size:.8rem;margin-top:5px">© 2026 Yuna · Todos os direitos reservados.</div></div>
-  <div class="socials"><a href="#" target="_blank">Discord</a><a href="https://www.youtube.com/@YunaHYTL" target="_blank">YouTube</a><a href="https://x.com/Lux_S22_" target="_blank">X</a><a href="#" target="_blank">Tumblr</a><a href="https://www.tiktok.com/@luashifter93" target="_blank">TikTok</a></div>
+  <div class="socials"><a href="#" target="_blank">Discord</a><a href="https://www.youtube.com/@YunaV.A" target="_blank">YouTube</a><a href="https://x.com/Yuna_S22_" target="_blank">Twitter (X)</a><a href="https://www.tiktok.com/@yuna_shifter" target="_blank">TikTok</a></div>
 </div></footer>
 <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Visualização da imagem" aria-hidden="true">
   <button class="close" id="closeLightbox" type="button" aria-label="Fechar visualização">×</button>
