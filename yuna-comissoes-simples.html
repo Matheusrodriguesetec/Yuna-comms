@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#fbf8f4">
+<title>Yuna — Comissões</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header><div class="wrap nav">
+  <a class="brand" href="#inicio">Yuna_S22<span></span></a>
+  <nav class="navlinks" id="navlinks"><a href="#portfolio">Portfólio</a><a href="#orcamento">Orçamento</a><a href="#processo">Como funciona</a><a href="#regras">Regras</a><a href="#pagamento">Pagamento</a></nav>
+  <a class="nav-cta" href="#contato">Solicitar comissão ↗</a><button class="menu" id="menuBtn" aria-label="Abrir menu">☰</button>
+</div></header>
+
+<main>
+<section class="hero" id="inicio"><div class="wrap hero-grid">
+  <div><div class="eyebrow">Comissões abertas · 2026</div>
+    <h1>Sua ideia,<br><em>minha arte.</em></h1>
+    <p class="hero-copy">Ilustrações feitas com carinho, personalidade e atenção aos detalhes. Transforme sua ideia em uma arte única.</p>
+    <div class="actions"><a class="primary" href="#orcamento">Calcular orçamento ↗</a><a class="secondary" href="#portfolio">Explorar portfólio</a></div>
+    <div class="stats"><div class="stat"><strong>R$ 15+</strong><span>Sketch</span></div><div class="stat"><strong>R$ 25+</strong><span>Lineart</span></div><div class="stat"><strong>100%</strong><span>Feito à mão</span></div></div>
+  </div>
+  <div class="hero-art"><img src="imagens/Hello.png" alt="Personagem ilustrado fazendo sinal de paz"></div>
+</div></section>
+<div class="strip"><div class="wrap"><span>✦ Personagens originais</span><span>✦ Fanarts</span><span>✦ Ilustrações personalizadas</span><span>✦ Atendimento online</span></div></div>
+
+<section class="section" id="portfolio"><div class="wrap">
+  <div class="section-head"><div class="eyebrow">Uma seleção de trabalhos</div><h2>Portfólio<span style="color:var(--accent)">.</span></h2><p>As artes são carregadas automaticamente. Clique em uma imagem para ampliar.</p></div>
+  <div class="portfolio-grid">
+    <section class="portfolio-category" data-category="sem-cor" aria-labelledby="sem-cor-title">
+      <div class="category-carousel">
+        <div class="category-window" data-category-window>
+          <div class="category-track" data-category-track></div>
+        </div>
+        <button class="carousel-arrow category-arrow previous" type="button" data-direction="-1" aria-label="Ver desenho sem cor anterior">‹</button>
+        <button class="carousel-arrow category-arrow next" type="button" data-direction="1" aria-label="Ver próximo desenho sem cor">›</button>
+        <span class="category-position" data-category-position aria-live="polite"></span>
+      </div>
+      <h3 id="sem-cor-title">Sem cor <small>(ou imagens monocromáticas)</small></h3>
+    </section>
+    <section class="portfolio-category" data-category="colorido" aria-labelledby="colorido-title">
+      <div class="category-carousel">
+        <div class="category-window" data-category-window>
+          <div class="category-track" data-category-track></div>
+        </div>
+        <button class="carousel-arrow category-arrow previous" type="button" data-direction="-1" aria-label="Ver desenho colorido anterior">‹</button>
+        <button class="carousel-arrow category-arrow next" type="button" data-direction="1" aria-label="Ver próximo desenho colorido">›</button>
+        <span class="category-position" data-category-position aria-live="polite"></span>
+      </div>
+      <h3 id="colorido-title">Colorido</h3>
+    </section>
+    <section class="portfolio-category" data-category="retrato oc" aria-labelledby="retrato-title">
+      <div class="category-carousel">
+        <div class="category-window" data-category-window>
+          <div class="category-track" data-category-track></div>
+        </div>
+        <button class="carousel-arrow category-arrow previous" type="button" data-direction="-1" aria-label="Ver retrato de OC anterior">‹</button>
+        <button class="carousel-arrow category-arrow next" type="button" data-direction="1" aria-label="Ver próximo retrato de OC">›</button>
+        <span class="category-position" data-category-position aria-live="polite"></span>
+      </div>
+      <h3 id="retrato-title">Retrato de OC</h3>
+    </section>
+  </div>
+</div></section>
+
+<section class="section calculator-section" id="orcamento"><div class="wrap">
+  <div class="section-head"><div class="eyebrow">Monte sua encomenda</div><h2>Calculadora de orçamento<span style="color:var(--accent)">.</span></h2><p>Escolha as características da sua comissão e veja uma estimativa. O valor final pode mudar conforme a complexidade da arte.</p></div>
+  <div class="calc-layout">
+    <div class="panel">
+      <div class="field"><div class="field-title">Estilo <small>Escolha um</small></div><div class="choices" data-group="style"><button class="choice selected" data-value="sketch">Sketch</button><button class="choice" data-value="lineart">Lineart</button></div></div>
+      <div class="field"><div class="field-title">Enquadramento <small>Escolha um</small></div><div class="choices" data-group="size"><button class="choice selected" data-value="head">Headshot</button><button class="choice" data-value="half">Half-body</button><button class="choice" data-value="full">Full-body</button></div></div>
+      <div class="field"><div class="field-title">Coloração <small>Adicional</small></div><div class="choices" data-group="color"><button class="choice selected" data-value="none">Sem cor</button><button class="choice" data-value="bw">Preto e branco</button><button class="choice" data-value="color">Colorido</button></div></div>
+      <div class="field"><div class="field-title">Cenário <small>Adicional</small></div><div class="choices" data-group="bg"><button class="choice selected" data-value="none">Sem cenário</button><button class="choice" data-value="simple">Simples</button><button class="choice" data-value="detailed">Detalhado</button></div></div>
+      <div class="field"><div class="field-title">Personagens adicionais <small>Quantidade</small></div><div class="stepper"><input id="extras" type="number" min="0" max="5" value="0"><span class="muted">Além do personagem principal</span></div></div>
+      <div class="muted" style="font-size:.8rem">Tabela inicial editável no JavaScript. Confirme os valores antes de publicar.</div>
+    </div>
+    <div class="preview-box">
+      <div class="panel">
+        <div class="field-title">Prévia da composição <small>Demonstrativa</small></div>
+        <div class="preview-stage" id="previewStage"><div class="preview-placeholder"><strong>Sua comissão</strong><span>A prévia em camadas aparecerá aqui<br>quando você adicionar seus PNGs.</span></div>
+          <!-- Camadas opcionais: crie PNGs transparentes e configure os caminhos no objeto PREVIEWS no script. -->
+          <img id="prevBg" alt="" hidden><img id="prevBase" alt="" hidden><img id="prevColor" alt="" hidden><img id="prevStyle" alt="" hidden>
+        </div>
+        <div class="preview-caption"><span id="previewDescription">Sketch · Headshot · Sem cor</span><span>Prévia ilustrativa</span></div>
+        <div class="price-card"><div class="price-label">Estimativa atual</div><div class="price" id="price">R$ 15,00</div><div class="price-note">O orçamento final será confirmado após analisar sua ideia.</div><div class="breakdown" id="breakdown"></div></div>
+        <div class="calc-actions"><button class="primary" id="sendQuote">Enviar orçamento ↗</button><button class="outline-btn" id="resetCalc">Limpar</button></div>
+      </div>
+    </div>
+  </div>
+</div></section>
+
+<section class="section" id="processo"><div class="wrap">
+  <div class="section-head"><div class="eyebrow">Do pedido à entrega</div><h2>Como funciona<span style="color:var(--accent)">.</span></h2><p>Um processo simples para que você saiba exatamente o que esperar da sua encomenda.</p></div>
+  <div class="steps">
+    <div class="step"><h3>Contato</h3><p>Você envia sua ideia, referências, personagens e preferências e me explica o que você imagina pelo <a class="contact-link" href="#contato">Discord</a>.</p></div>
+    <div class="step"><h3>Orçamento</h3><p>Analiso a complexidade e confirmo o preço, prazo e detalhes. (o preço em <a class="contact-link" href="#orcamento">orçamento</a> pode variar).</p></div>
+    <div class="step"><h3>Pagamento</h3><p>Depois da avaliação você paga metade do preço para iniciar o processo e para a entrega da arte você paga o restante, garantindo a sua e a minha segurança.</p></div>
+    <div class="step"><h3>Produção</h3><p>Enquanto faço a arte vou mandando atualizações sobre como está progredindo. te permitindo acompanhar o desenvolvimento e opinar sobre as mudanças.</p></div>
+    <div class="step"><h3>Entrega</h3><p>Após a aprovação e conclusão do pagamento, envio o arquivo final. Você pode postalo em suas redes sociais. (porfavor me <a class="contact-link" href="https://x.com/Yuna_S22_">marcar</a>)</p></div>
+  </div>
+</div></section>
+
+<section class="section" id="regras" style="background:var(--section-alt)"><div class="wrap">
+  <div class="section-head"><div class="eyebrow">Antes de encomendar</div><h2>Do's & Dont's<span style="color:var(--accent)">.</span></h2><p>Consulte os temas que aceito e os limites do meu trabalho.</p></div>
+  <div class="policy-grid">
+    <div class="policy"><h3 class="yes">✓ Aceito</h3><ul><li>Personagens originais (OCs)</li><li>Personagens de terceiros</li><li>qualquer pose (sem NSFW)</li><li>Personagens humanoides e furry</li><li>Metadinhas e avatares (Pfp's)</li></ul></div>
+    <div class="policy"><h3 class="no">✕ Não aceito</h3><ul><li>Conteúdo NSFW (todos os tipos de conteúdo explícito/sensível)</li><li>Desenhos com IA</li><li>Imitação exata do estilo de outros artistas (inspiração permitida)</li><li>Fetichismo</li><li>Pedidos que envolvam conteúdo discriminatório ou de ódio</li></ul></div>
+  </div>
+  <div class="info-grid" style="margin-top:18px">
+    <article class="info-card"><div class="icon">↻</div><h3>Revisões</h3><p>Defina aqui quantas revisões estão incluídas e quais alterações podem ser solicitadas em cada etapa.</p></article>
+    <article class="info-card"><div class="icon">◷</div><h3>Prazo</h3><p>O prazo depende da complexidade e da fila de pedidos. Confirme a previsão antes de pagar.</p></article>
+    <article class="info-card"><div class="icon">©</div><h3>Uso da arte</h3><p>As comissões são para uso pessoal. Uso comercial precisa ser combinado separadamente.</p></article>
+  </div>
+</div></section>
+
+<section class="section" id="pagamento"><div class="wrap">
+  <div class="section-head"><div class="eyebrow">Pagamento e entrega</div><h2>Informações importantes<span style="color:var(--accent)">.</span></h2><p>Deixe tudo combinado antes do início da comissão.</p></div>
+  <div class="payment">
+    <div class="payment-card"><span class="badge-note">Métodos aceitos</span><h3>Pix ou Robux</h3><p>O pagamento é combinado individualmente após a aprovação do orçamento. Insira aqui sua regra de sinal, parcelamento e conversão de Robux.</p></div>
+    <div class="payment-card"><span class="badge-note">Entrega digital</span><h3>Arquivo em alta qualidade</h3><p>A arte final é enviada digitalmente. Combine previamente formato, resolução, fundo transparente e se haverá arquivo sem marca d'água.</p></div>
+  </div>
+</div></section>
+
+<section class="section" id="duvidas" style="background:var(--section-alt)"><div class="wrap faq">
+  <div class="section-head"><div class="eyebrow">Perguntas frequentes</div><h2>Ficou com dúvida?</h2></div>
+  <details><summary>Como faço para pedir uma comissão?</summary><p>Use o contato indicado no final da página e envie uma descrição da ideia, referências visuais e o tipo de desenho desejado.</p></details>
+  <details><summary>O preço da calculadora é definitivo?</summary><p>Não. É uma estimativa. A complexidade, detalhes, acessórios e exigências específicas podem alterar o orçamento final.</p></details>
+  <details><summary>Posso pedir alterações?</summary><p>As condições e a quantidade de revisões devem ser confirmadas antes do início do trabalho.</p></details>
+  <details><summary>Você aceita pedidos urgentes?</summary><p>Disponibilidade e eventual taxa de urgência precisam ser confirmadas no contato.</p></details>
+</div></section>
+
+<section class="section" id="contato"><div class="wrap"><div class="contact-box">
+  <div><div class="eyebrow">Vamos criar algo?</div><h2>Sua ideia pode virar arte.</h2><p>Me envie sua ideia, referências e dúvidas. Vamos conversar sobre a comissão!</p></div>
+  <a class="primary" id="contactButton" href="#" target="_blank" rel="noopener">Entrar em contato ↗</a>
+</div></div></section>
+</main>
+<footer><div class="wrap footer-row"><div><a class="brand" href="#inicio">yuna<span>.</span></a><div style="font-size:.8rem;margin-top:5px">© 2026 Yuna · Todos os direitos reservados.</div></div>
+  <div class="socials"><a href="#" target="_blank">Discord</a><a href="https://www.youtube.com/@YunaHYTL" target="_blank">YouTube</a><a href="https://x.com/Lux_S22_" target="_blank">X</a><a href="#" target="_blank">Tumblr</a><a href="https://www.tiktok.com/@luashifter93" target="_blank">TikTok</a></div>
+</div></footer>
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Visualização da imagem" aria-hidden="true">
+  <button class="close" id="closeLightbox" type="button" aria-label="Fechar visualização">×</button>
+  <div class="lightbox-content">
+    <div class="lightbox-image-viewport" id="lightboxViewport"><img id="lightboxImage" alt=""></div>
+    <div class="lightbox-details">
+      <div><p id="lightboxCaption"></p><small class="zoom-hint">Ctrl + rolagem no PC · pinça com dois dedos no celular</small></div>
+      <div class="zoom-controls" aria-label="Controles de zoom">
+        <button id="zoomOut" type="button" aria-label="Diminuir zoom">−</button>
+        <button id="zoomReset" type="button" aria-label="Redefinir zoom">100%</button>
+        <button id="zoomIn" type="button" aria-label="Aumentar zoom">+</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="portfolio-manifest.js"></script>
+<script src="script.js"></script>
+</body>
+</html>

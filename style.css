@@ -1,0 +1,1115 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Nunito:wght@400;600;700;800&display=swap');
+
+
+/* ========================================
+   1. VARIÁVEIS E CONFIGURAÇÕES GERAIS
+======================================== */
+
+:root {
+    --bg: #fbf8f4;
+    --panel: #fffdfa;
+    --ink: #3c2b21;
+    --muted: #816f62;
+    --line: #e9ded3;
+    --accent: #8b5e3c;
+    --accent-soft: #f3e8dc;
+    --section-alt: #f5eee6;
+    --good: #55745a;
+    --max: 1120px;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: 'DM Sans', sans-serif;
+    line-height: 1.6;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button,
+input {
+    font: inherit;
+    cursor: pointer;
+}
+
+
+/* ========================================
+   2. ELEMENTOS GERAIS
+======================================== */
+
+.wrap {
+    width: min(var(--max), calc(100% - 40px));
+    margin: auto;
+}
+
+.eyebrow {
+    color: var(--accent);
+    font-size: .76rem;
+    font-weight: 700;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+}
+
+.muted {
+    color: var(--muted);
+}
+
+.section {
+    padding: 72px 0;
+}
+
+.section-head {
+    max-width: 680px;
+    margin-bottom: 30px;
+}
+
+.section-head h2 {
+    font: 800 clamp(2rem, 4vw, 2.8rem)/1.12 Nunito;
+    margin: 8px 0 10px;
+}
+
+.section-head p,
+.hero-copy {
+    color: var(--muted);
+}
+
+
+/* ========================================
+   3. CABEÇALHO E NAVEGAÇÃO
+======================================== */
+
+header {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: #fbf8f4f2;
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--line);
+}
+
+.nav {
+    height: 68px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.brand {
+    font: 800 1.45rem Nunito;
+}
+
+.brand span,
+.hero h1 em {
+    color: var(--accent);
+}
+
+.navlinks {
+    display: flex;
+    gap: 22px;
+    color: var(--muted);
+    font-size: .9rem;
+}
+
+.navlinks a:hover {
+    color: var(--accent);
+}
+
+.nav-cta,
+.primary {
+    background: var(--accent);
+    color: white;
+    border: 0;
+    border-radius: 8px;
+    padding: 10px 16px;
+    font-weight: 700;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.secondary,
+.outline-btn {
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    padding: 9px 15px;
+    background: white;
+    color: var(--ink);
+    font-weight: 700;
+}
+
+.menu {
+    display: none;
+    background: white;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    padding: 8px 12px;
+}
+
+
+/* ========================================
+   4. SEÇÃO INICIAL (HERO)
+======================================== */
+
+.hero {
+    padding: 65px 0 58px;
+}
+
+.hero-grid {
+    display: grid;
+    grid-template-columns: 1.05fr .95fr;
+    gap: 42px;
+    align-items: center;
+}
+
+.hero h1 {
+    font: 800 clamp(3rem, 6.5vw, 5.1rem)/1.02 Nunito;
+    margin: 13px 0 18px;
+    letter-spacing: -.05em;
+}
+
+.hero-copy {
+    font-size: 1.05rem;
+    max-width: 530px;
+}
+
+.actions {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-top: 24px;
+}
+
+.hero-art {
+    min-height: 340px;
+    position: relative;
+    z-index: 2;
+}
+
+.hero-art img {
+    position: absolute;
+    width: min(100%, 400px);
+    height: auto;
+    right: 42px;
+    bottom: -175px;
+}
+
+/* ========================================
+   5. ESTATÍSTICAS E FAIXA INFORMATIVA
+======================================== */
+
+.stats {
+    display: flex;
+    gap: 28px;
+    margin-top: 28px;
+    flex-wrap: wrap;
+}
+
+.stat strong {
+    font: 800 1.35rem Nunito;
+    display: block;
+}
+
+.stat span {
+    font-size: .8rem;
+    color: var(--muted);
+}
+
+.strip {
+    position: relative;
+    z-index: 1;
+    border-block: 1px solid var(--line);
+    background: var(--section-alt);
+    padding: 12px 0;
+    color: var(--muted);
+    font-size: .83rem;
+}
+
+.strip .wrap {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+
+/* ========================================
+   6. GALERIA DE DESENHOS
+======================================== */
+
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 18px;
+}
+
+.portfolio-category {
+    min-width: 0;
+    padding: 10px;
+    border: 1px solid var(--line);
+    border-radius: 13px;
+    background: var(--panel);
+    box-shadow: 0 8px 24px #3c2b210a;
+}
+
+.portfolio-category h3 {
+    margin: 12px 0 3px;
+    text-align: center;
+    font: 800 1.15rem Nunito;
+}
+
+.portfolio-category h3 small {
+    color: var(--muted);
+    font: 500 .78rem 'DM Sans', sans-serif;
+}
+
+.carousel-arrow {
+    width: 38px;
+    height: 38px;
+    border: 1px solid var(--line);
+    border-radius: 50%;
+    background: var(--panel);
+    color: var(--ink);
+    font-size: 1.4rem;
+    line-height: 1;
+    cursor: pointer;
+    transition: background .2s ease, color .2s ease, transform .2s ease;
+}
+
+.carousel-arrow:hover:not(:disabled) {
+    background: var(--accent);
+    color: white;
+    transform: translateY(-1px);
+}
+
+.carousel-arrow:disabled {
+    opacity: .4;
+    cursor: default;
+}
+
+.category-carousel {
+    position: relative;
+    aspect-ratio: 4 / 5;
+}
+
+.category-window {
+    width: 100%;
+    height: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    border-radius: 9px;
+    background: var(--section-alt);
+    scrollbar-width: none;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+}
+
+.category-window::-webkit-scrollbar {
+    display: none;
+}
+
+.category-track {
+    display: flex;
+    width: 100%;
+    height: 100%;
+}
+
+.category-track > .work {
+    flex: 0 0 100%;
+    width: 100%;
+    height: 100%;
+    border: 0;
+    border-radius: 0;
+    scroll-snap-align: start;
+}
+
+.category-track > .work .work-img {
+    height: 100%;
+    aspect-ratio: auto;
+}
+
+.category-track > .category-empty {
+    display: grid;
+    place-items: center;
+    width: 100%;
+    min-height: 100%;
+    padding: 16px;
+    border: 0;
+    background: transparent;
+    font-size: .86rem;
+}
+
+.category-arrow {
+    position: absolute;
+    top: 50%;
+    z-index: 1;
+    width: 36px;
+    height: 36px;
+    border-color: #ffffffb3;
+    background: #fffdfaeb;
+    box-shadow: 0 2px 8px #00000020;
+    transform: translateY(-50%);
+}
+
+.category-arrow:hover:not(:disabled) {
+    transform: translateY(-50%) scale(1.06);
+}
+
+.category-arrow.previous {
+    left: 8px;
+}
+
+.category-arrow.next {
+    right: 8px;
+}
+
+.category-position {
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+    padding: 4px 8px;
+    border-radius: 20px;
+    background: #241a14b8;
+    color: white;
+    font-size: .75rem;
+}
+
+.category-arrow[hidden],
+.category-position[hidden] {
+    display: none;
+}
+
+.work {
+    background: var(--panel);
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.work:focus-visible {
+    outline: 3px solid var(--accent);
+    outline-offset: -3px;
+}
+
+.work-img {
+    aspect-ratio: 4/5;
+    background: #f3e8dc;
+    display: grid;
+    place-items: center;
+    overflow: hidden;
+}
+
+.work-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.work-img .placeholder {
+    color: var(--accent);
+    text-align: center;
+    padding: 20px;
+}
+
+.category-empty {
+    display: grid;
+    place-items: center;
+    min-height: 100%;
+    margin: 0;
+    padding: 24px;
+    color: var(--muted);
+    text-align: center;
+}
+
+.choices {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.choice {
+    border: 1px solid var(--line);
+    background: white;
+    color: var(--muted);
+    padding: 8px 12px;
+    border-radius: 7px;
+}
+
+.choice.selected {
+    background: var(--accent-soft);
+    border-color: var(--accent);
+    color: #68452e;
+}
+
+
+/* ========================================
+   7. CALCULADORA DE PREÇOS
+======================================== */
+
+.calculator-section {
+    background: var(--section-alt);
+}
+
+.calc-layout {
+    display: grid;
+    grid-template-columns: 1fr .9fr;
+    gap: 20px;
+    align-items: start;
+}
+
+.panel {
+    background: white;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 22px;
+}
+
+.field {
+    margin-bottom: 22px;
+}
+
+.field-title {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+.field-title small {
+    color: var(--muted);
+    font-weight: 500;
+}
+
+.stepper {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.stepper input {
+    width: 75px;
+    border: 1px solid var(--line);
+    border-radius: 7px;
+    padding: 9px;
+}
+
+
+/* ========================================
+   8. PRÉVIA DO DESENHO
+======================================== */
+
+.preview-box {
+    position: sticky;
+    top: 88px;
+}
+
+.preview-stage {
+    aspect-ratio: 4/5;
+    max-height: 500px;
+    background: #f3e8dc;
+    border-radius: 9px;
+    overflow: hidden;
+
+    position: relative;
+
+    display: grid;
+    place-items: center;
+}
+
+.preview-stage:before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(145deg, #f6ede3, #ddc5ad);
+}
+
+.preview-stage img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    z-index: 2;
+}
+
+.preview-placeholder {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    padding: 25px;
+}
+
+.preview-placeholder strong {
+    display: block;
+    font: 800 1.4rem Nunito;
+}
+
+.preview-caption {
+    display: flex;
+    justify-content: space-between;
+    color: var(--muted);
+    font-size: .8rem;
+    margin: 10px 2px 16px;
+}
+
+
+/* ========================================
+   9. RESUMO E VALOR DO ORÇAMENTO
+======================================== */
+
+.price-card {
+    border: 1px solid #dfc9b3;
+    background: #faf4ed;
+    padding: 18px;
+    border-radius: 10px;
+}
+
+.price-label,
+.price-note {
+    color: var(--muted);
+    font-size: .83rem;
+}
+
+.price {
+    font: 800 clamp(2.2rem, 5vw, 3rem) Nunito;
+    margin: 2px 0;
+}
+
+.breakdown {
+    border-top: 1px solid var(--line);
+    margin-top: 14px;
+    padding-top: 11px;
+    font-size: .86rem;
+}
+
+.break-row {
+    display: flex;
+    justify-content: space-between;
+    margin: 5px 0;
+}
+
+.calc-actions {
+    display: flex;
+    gap: 9px;
+    margin-top: 13px;
+}
+
+.calc-actions > * {
+    flex: 1;
+}
+
+
+/* ========================================
+   10. INFORMAÇÕES E DIFERENCIAIS
+======================================== */
+
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+}
+
+.info-card,
+.policy {
+    padding: 20px;
+    background: white;
+    border: 1px solid var(--line);
+    border-radius: 11px;
+}
+
+.icon {
+    width: 38px;
+    height: 38px;
+    display: grid;
+    place-items: center;
+    background: var(--accent-soft);
+    border-radius: 9px;
+    color: var(--accent);
+}
+
+.info-card h3 {
+    font: 700 1.05rem Nunito;
+}
+
+.info-card p,
+.info-card li,
+.policy ul {
+    color: var(--muted);
+    font-size: .9rem;
+}
+
+
+/* ========================================
+   11. ETAPAS DO PEDIDO
+======================================== */
+
+.steps {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 13px;
+    counter-reset: step;
+}
+
+.step {
+    border-top: 2px solid #dfc9b3;
+    padding: 15px 10px 0 0;
+}
+
+.step:before {
+    counter-increment: step;
+    content: '0' counter(step);
+    font: 800 1.45rem Nunito;
+    color: var(--accent);
+}
+
+.step h3 {
+    margin: 8px 0 4px;
+}
+
+.step p {
+    color: var(--muted);
+    font-size: .88rem;
+}
+
+.contact-link {
+    color: var(--accent);
+    font-weight: 700;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+.contact-link:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+}
+
+
+/* ========================================
+   12. POLÍTICAS E PAGAMENTO
+======================================== */
+
+.policy-grid,
+.payment {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+}
+
+.policy h3,
+.payment-card h3 {
+    font: 800 1.2rem Nunito;
+    margin-top: 0;
+}
+
+.policy li {
+    margin: 7px 0;
+}
+
+.yes {
+    color: var(--good);
+}
+
+.no {
+    color: #9e5e4d;
+}
+
+.payment-card {
+    background: var(--section-alt);
+    border: 1px solid var(--line);
+    border-radius: 11px;
+    padding: 22px;
+}
+
+.payment-card p {
+    color: var(--muted);
+}
+
+.badge-note {
+    display: inline-block;
+    border: 1px solid #dfc9b3;
+    border-radius: 6px;
+    padding: 4px 9px;
+    color: #68452e;
+    font-size: .78rem;
+}
+
+
+/* ========================================
+   13. PERGUNTAS FREQUENTES
+======================================== */
+
+.faq {
+    max-width: 850px;
+}
+
+.faq details {
+    border-bottom: 1px solid var(--line);
+    padding: 15px 0;
+}
+
+.faq summary {
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.faq details p {
+    color: var(--muted);
+}
+
+
+/* ========================================
+   14. CONTATO
+======================================== */
+
+.contact-box {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 25px;
+    padding: 30px;
+    border-radius: 13px;
+    background: var(--section-alt);
+    border: 1px solid var(--line);
+}
+
+.contact-box h2 {
+    font: 800 clamp(2rem, 4vw, 2.7rem)/1.1 Nunito;
+    margin: 7px 0;
+}
+
+.contact-box p {
+    color: var(--muted);
+    max-width: 560px;
+}
+
+
+/* ========================================
+   15. RODAPÉ
+======================================== */
+
+footer {
+    padding: 28px 0;
+    border-top: 1px solid var(--line);
+    color: var(--muted);
+}
+
+.footer-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 18px;
+    flex-wrap: wrap;
+}
+
+.socials {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+
+/* ========================================
+   16. VISUALIZAÇÃO AMPLIADA (LIGHTBOX)
+======================================== */
+
+.lightbox {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+    background: #241a14ef;
+    align-items: center;
+    justify-content: center;
+    padding: 25px;
+}
+
+.lightbox.open {
+    display: flex;
+    animation: lightbox-fade .2s ease both;
+}
+
+.lightbox-content {
+    width: min(100%, 1100px);
+    max-height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+    animation: lightbox-entry .28s cubic-bezier(.2,.8,.2,1) both;
+}
+
+.lightbox-image-viewport {
+    width: 100%;
+    min-height: 0;
+    flex: 1;
+    display: grid;
+    place-items: center;
+    overflow: auto;
+    touch-action: none;
+}
+
+.lightbox-image-viewport img {
+    display: block;
+    max-width: min(90vw, 1100px);
+    max-height: calc(100vh - 150px);
+    object-fit: contain;
+    transform: scale(1);
+    transform-origin: center;
+    transition: transform .15s ease;
+}
+
+.close {
+    position: absolute;
+    top: 20px;
+    right: 25px;
+    background: #ffffff22;
+    color: white;
+    border: 0;
+    border-radius: 50%;
+    width: 42px;
+    height: 42px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    z-index: 1;
+}
+
+.lightbox-details {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    color: white;
+}
+
+.lightbox-details p {
+    margin: 0;
+}
+
+.zoom-hint {
+    display: block;
+    margin-top: 4px;
+    color: #ffffffb3;
+    font-size: .78rem;
+}
+
+.zoom-controls {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-shrink: 0;
+}
+
+.zoom-controls button {
+    min-width: 38px;
+    min-height: 38px;
+    border: 1px solid #ffffff66;
+    border-radius: 8px;
+    background: #ffffff1a;
+    color: white;
+    font: inherit;
+    cursor: pointer;
+}
+
+.zoom-controls button:hover,
+.zoom-controls button:focus-visible {
+    background: #ffffff33;
+}
+
+@keyframes lightbox-fade {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes lightbox-entry {
+    from { opacity: 0; transform: translateY(14px) scale(.97); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@media (max-width: 560px) {
+    .lightbox {
+        padding: 64px 14px 18px;
+    }
+
+    .lightbox-image-viewport img {
+        max-width: calc(100vw - 28px);
+        max-height: calc(100vh - 165px);
+    }
+
+    .lightbox-details {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .zoom-controls {
+        align-self: flex-end;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .lightbox.open,
+    .lightbox-content {
+        animation-duration: .01ms;
+    }
+
+    .category-window {
+        scroll-behavior: auto;
+    }
+}
+
+
+/* ========================================
+   17. RESPONSIVIDADE — TABLETS
+======================================== */
+
+@media (max-width: 850px) {
+
+    .calc-layout,
+    .payment {
+        grid-template-columns: 1fr;
+    }
+
+    .hero-grid {
+        position: relative;
+        display: block;
+    }
+
+    .hero-grid > div:first-child {
+        position: relative;
+        z-index: 2;
+        padding-bottom: 30px;
+    }
+
+    .hero-art {
+        position: absolute;
+        right: 0;
+        bottom: 0px;
+        width: clamp(165px, 30vw, 245px);
+        min-height: 0;
+    }
+
+    .hero-art img {
+        width: 125%;
+        max-width: none;
+        right: 8px;
+        bottom: 0;
+        border-radius: 15px;
+    }
+
+    .info-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .steps {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .preview-box {
+        position: static;
+    }
+
+    .navlinks {
+        display: none;
+        position: absolute;
+        top: 68px;
+        left: 0;
+        right: 0;
+        padding: 18px;
+        background: var(--bg);
+        flex-direction: column;
+        border-bottom: 1px solid var(--line);
+    }
+
+    .navlinks.show {
+        display: flex;
+    }
+
+    .menu {
+        display: block;
+    }
+
+    .nav-cta {
+        display: none;
+    }
+}
+
+
+/* ========================================
+   18. RESPONSIVIDADE — CELULARES
+======================================== */
+
+@media (max-width: 560px) {
+
+    .wrap {
+        width: min(100% - 28px, var(--max));
+    }
+
+    .section {
+        padding: 55px 0;
+    }
+
+    .portfolio-grid {
+        grid-template-columns: 1fr;
+        gap: 14px;
+    }
+
+    .portfolio-category {
+        padding: 9px;
+    }
+
+    .category-carousel {
+        aspect-ratio: 5 / 4;
+    }
+
+    .hero-art {
+        right: -4px;
+        bottom: -120px;
+        width: clamp(150px, 42vw, 205px);
+    }
+
+    .hero-art img {
+        width: 100%;
+        right: 22px;
+    }
+
+    .stats {
+        max-width: 180px;
+    }
+
+    .strip .wrap {
+        justify-content: flex-start;
+        gap: 5px;
+        padding-right: clamp(140px, 49vw, 190px);
+    }
+
+    .info-grid,
+    .policy-grid,
+    .steps {
+        grid-template-columns: 1fr;
+    }
+
+    .contact-box {
+        align-items: flex-start;
+        flex-direction: column;
+        padding: 22px;
+    }
+
+    .panel {
+        padding: 17px;
+    }
+
+}
