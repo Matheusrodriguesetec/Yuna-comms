@@ -21,6 +21,7 @@ const previewFiles = {
 };
 const brl = n => n.toLocaleString("pt-BR",{style:"currency",currency:"BRL"});
 const $ = id => document.getElementById(id);
+const discordInvite = $("contactButton").href;
 
 function updatePreview(){
   const styleFolder = previewFiles.style[state.style];
@@ -129,11 +130,46 @@ $("resetCalc").addEventListener("click",()=>{
 });
 $("sendQuote").addEventListener("click",()=>{
   const p=calculate();
-  const msg=`Olá! Gostaria de solicitar uma comissão.\nEstilo: ${labels.style[state.style]}\nEnquadramento: ${labels.size[state.size]}\nColoração: ${labels.color[state.color]}\nCenário: ${labels.bg[state.bg]}\nPersonagens adicionais: ${p.extras}\nEstimativa: ${brl(p.total)}\n\nMinha ideia/referências:`;
-  // Substitua pelo seu link de contato (ex.: https://wa.me/55DDDNUMERO).
-  const contact=$("contactButton").href;
-  if(contact && contact!=="#") window.open(contact+(contact.includes("?")?"&":"?")+"text="+encodeURIComponent(msg),"_blank");
-  else {navigator.clipboard?.writeText(msg);alert("Resumo copiado! Configure seu link de contato no HTML para abrir uma conversa diretamente.");}
+  const msg=`Olá Yuna_S22! Vim do seu site de comissão.\nMeu set é:\nEstilo: ${labels.style[state.style]}\nEnquadramento: ${labels.size[state.size]}\nColoração: ${labels.color[state.color]}\nCenário: ${labels.bg[state.bg]}\nPersonagens adicionais: ${p.extras}\nPreço estimado: ${brl(p.total)}`;
+  const button=$("sendQuote");
+  const originalLabel=button.textContent;
+  const discordTab=window.open(discordInvite,"_blank");
+  if(discordTab) discordTab.opener=null;
+  if(!discordTab) window.location.assign(discordInvite);
+
+  const showCopyResult=copied=>{
+    button.textContent=copied?"Copiado! Cole no Discord":"Não foi possível copiar";
+    if(!copied) window.prompt("Copie sua mensagem para enviar no Discord:",msg);
+    setTimeout(()=>{button.textContent=originalLabel;},4000);
+  };
+  const fallbackCopy=()=>{
+    const textarea=document.createElement("textarea");
+    textarea.value=msg;
+    textarea.style.position="fixed";
+    textarea.style.opacity="0";
+    document.body.append(textarea);
+    textarea.select();
+    let copied=false;
+    try{
+      copied=document.execCommand("copy");
+    }catch(error){
+      console.error("Não foi possível copiar o orçamento:",error);
+    }finally{
+      textarea.remove();
+    }
+    return copied;
+  };
+  if(navigator.clipboard?.writeText){
+    navigator.clipboard.writeText(msg).then(
+      ()=>showCopyResult(true),
+      error=>{
+        console.error("Não foi possível copiar o orçamento:",error);
+        showCopyResult(fallbackCopy());
+      }
+    );
+  }else{
+    showCopyResult(fallbackCopy());
+  }
 });
 calculate();
 
