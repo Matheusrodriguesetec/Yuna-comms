@@ -7,12 +7,14 @@ calculadora/
 |-- Sketch/
 |   |-- personagem.png
 |   |-- cores/
+|   |   |-- sem-cor.png
 |   |   |-- preto-e-branco.png
 |   |   `-- colorido.png
 |   `-- enquadramento/ (pode ficar vazia)
 |-- Lineart/
 |   |-- personagem.png
 |   |-- cores/
+|   |   |-- sem-cor.png
 |   |   |-- preto-e-branco.png
 |   |   `-- colorido.png
 |   `-- enquadramento/ (pode ficar vazia)
@@ -31,7 +33,7 @@ calculadora/
 ## Como preparar as camadas
 
 - **`personagem.png`**: desenho-base sem cenário, em PNG com fundo transparente. Faça um arquivo para Sketch e outro para Lineart.
-- **`cores/*.png`**: apenas a pintura/sombra da opção correspondente, também transparente e alinhada ao `personagem.png`. O traço fica acima dessa camada. Para **Sem cor**, não é necessário criar uma camada.
+- **`cores/*.png`**: camada correspondente à coloração escolhida, transparente e alinhada ao `personagem.png`. O traço fica acima dessa camada. Inclua também **`sem-cor.png`** para a opção **Sem cor**.
 - **Enquadramento**: o site aproxima a camada do personagem com uma transição; não é necessário criar imagens diferentes para Headshot, Half-body ou Full-body.
 - **`cenarios/blank.png`**: imagem exibida quando **Sem cenário** estiver selecionado.
 - **`cenarios/simples/*.png`** e **`cenarios/detalhado/*.png`**: cenário da opção escolhida, sem o personagem. Essas imagens são compartilhadas por Sketch e Lineart. Para cada tipo de cenário, crie as versões sem cor, em preto e branco e colorida.

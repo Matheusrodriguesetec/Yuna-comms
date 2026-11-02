@@ -16,7 +16,7 @@ const labels = {
 };
 const previewFiles = {
   style:{sketch:"Sketch",lineart:"Lineart"},
-  color:{none:null,bw:"preto-e-branco",color:"colorido"},
+  color:{none:"sem-cor",bw:"preto-e-branco",color:"colorido"},
   bg:{simple:"simples",detailed:"detalhado"}
 };
 const brl = n => n.toLocaleString("pt-BR",{style:"currency",currency:"BRL"});
@@ -44,22 +44,54 @@ function updatePreview(){
       return;
     }
     if(img.getAttribute("src")===encodedSrc){
-      if(img.complete && img.naturalWidth>0) img.hidden=false;
+      if(img.complete && img.naturalWidth>0){
+        img.hidden=false;
+        img.style.opacity="1";
+      }
       return;
     }
-    img.hidden=true;
-    img.onload=()=>{
-      if(img.getAttribute("src")!==encodedSrc) return;
+    img.dataset.requestedSrc=encodedSrc;
+    const nextImage=new Image();
+    nextImage.onload=()=>{
+      if(img.dataset.requestedSrc!==encodedSrc) return;
+      const hasCurrentImage=!img.hidden && img.complete && img.naturalWidth>0;
+      let previousImage=null;
+      if(hasCurrentImage){
+        previousImage=img.cloneNode();
+        previousImage.removeAttribute("id");
+        previousImage.setAttribute("aria-hidden","true");
+        previousImage.classList.add("preview-old-layer");
+        previousImage.style.transform=getComputedStyle(img).transform;
+        previousImage.style.opacity="1";
+        img.after(previousImage);
+      }
       img.hidden=false;
-      updatePreviewPlaceholder();
+      img.style.opacity="0";
+      img.onload=()=>{
+        if(img.getAttribute("src")===encodedSrc) updatePreviewPlaceholder();
+      };
+      img.onerror=()=>{
+        if(img.getAttribute("src")===encodedSrc){
+          console.warn(`Imagem da prévia não encontrada: ${src}`);
+          updatePreviewPlaceholder();
+        }
+      };
+      img.src=encodedSrc;
+      void img.offsetWidth;
+      setTimeout(()=>{
+        if(img.getAttribute("src")===encodedSrc) img.style.opacity="1";
+        if(previousImage){
+          previousImage.style.opacity="0";
+          setTimeout(()=>previousImage.remove(),300);
+        }
+      },20);
     };
-    img.onerror=()=>{
-      if(img.getAttribute("src")!==encodedSrc) return;
-      img.hidden=true;
-      console.warn(`Imagem da prévia não encontrada: ${src}`);
-      updatePreviewPlaceholder();
+    nextImage.onerror=()=>{
+      if(img.dataset.requestedSrc===encodedSrc){
+        console.warn(`Imagem da prévia não encontrada: ${src}`);
+      }
     };
-    img.src=encodedSrc;
+    nextImage.src=encodedSrc;
   });
   updatePreviewPlaceholder();
   $("previewDescription").textContent=[labels.style[state.style],labels.size[state.size],labels.color[state.color],labels.bg[state.bg]].join(" · ");
