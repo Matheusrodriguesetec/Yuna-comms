@@ -9,20 +9,15 @@ calculadora/
 |   |-- cores/
 |   |   |-- preto-e-branco.png
 |   |   `-- colorido.png
-|   `-- enquadramento/
-|       |-- headshot.png
-|       |-- meio-corpo.png
-|       `-- corpo-inteiro.png
+|   `-- enquadramento/ (pode ficar vazia)
 |-- Lineart/
 |   |-- personagem.png
 |   |-- cores/
 |   |   |-- preto-e-branco.png
 |   |   `-- colorido.png
-|   `-- enquadramento/
-|       |-- headshot.png
-|       |-- meio-corpo.png
-|       `-- corpo-inteiro.png
+|   `-- enquadramento/ (pode ficar vazia)
 `-- cenarios/
+    |-- blank.png
     |-- simples/
     |   |-- sem-cor.png
     |   |-- preto-e-branco.png
@@ -37,8 +32,9 @@ calculadora/
 
 - **`personagem.png`**: desenho-base sem cenário, em PNG com fundo transparente. Faça um arquivo para Sketch e outro para Lineart.
 - **`cores/*.png`**: apenas a pintura/sombra da opção correspondente, também transparente e alinhada ao `personagem.png`. O traço fica acima dessa camada. Para **Sem cor**, não é necessário criar uma camada.
-- **`enquadramento/*.png`**: apenas o contorno vermelho indicando a área do enquadramento, com o restante transparente. Crie uma imagem para cada opção e salve-a na pasta do estilo correspondente.
-- **`cenarios/*.png`**: cenário da opção escolhida, sem o personagem. Essas imagens são compartilhadas por Sketch e Lineart. Para cada tipo de cenário, crie as versões sem cor, em preto e branco e colorida.
+- **Enquadramento**: o site aproxima a camada do personagem com uma transição; não é necessário criar imagens diferentes para Headshot, Half-body ou Full-body.
+- **`cenarios/blank.png`**: imagem exibida quando **Sem cenário** estiver selecionado.
+- **`cenarios/simples/*.png`** e **`cenarios/detalhado/*.png`**: cenário da opção escolhida, sem o personagem. Essas imagens são compartilhadas por Sketch e Lineart. Para cada tipo de cenário, crie as versões sem cor, em preto e branco e colorida.
 
 Todas as camadas de uma composição devem ter as mesmas dimensões e estar alinhadas na mesma posição. Prefira a proporção 4:5 da área de prévia. Use PNG com transparência. Os nomes de pastas e arquivos diferenciam maiúsculas de minúsculas; mantenha-os exatamente como no exemplo.
 

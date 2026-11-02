@@ -16,7 +16,6 @@ const labels = {
 };
 const previewFiles = {
   style:{sketch:"Sketch",lineart:"Lineart"},
-  size:{head:"headshot",half:"meio-corpo",full:"corpo-inteiro"},
   color:{none:null,bw:"preto-e-branco",color:"colorido"},
   bg:{simple:"simples",detailed:"detalhado"}
 };
@@ -26,17 +25,17 @@ const $ = id => document.getElementById(id);
 function updatePreview(){
   const styleFolder = previewFiles.style[state.style];
   const colorFile = previewFiles.color[state.color];
+  $("previewStage").dataset.size = state.size;
   const paths = {
-    bg: previewFiles.bg[state.bg]
-      ? `imagens/calculadora/cenarios/${previewFiles.bg[state.bg]}/${colorFile || "sem-cor"}.png`
-      : null,
+    bg: state.bg === "none"
+      ? "imagens/calculadora/cenarios/blank.png"
+      : `imagens/calculadora/cenarios/${previewFiles.bg[state.bg]}/${colorFile || "sem-cor"}.png`,
     color: colorFile
       ? `imagens/calculadora/${styleFolder}/cores/${colorFile}.png`
       : null,
-    base: `imagens/calculadora/${styleFolder}/personagem.png`,
-    frame: `imagens/calculadora/${styleFolder}/enquadramento/${previewFiles.size[state.size]}.png`
+    base: `imagens/calculadora/${styleFolder}/personagem.png`
   };
-  const images = [["prevBg","bg"],["prevColor","color"],["prevBase","base"],["prevFrame","frame"]];
+  const images = [["prevBg","bg"],["prevColor","color"],["prevBase","base"]];
   images.forEach(([id,key])=>{
     const img=$(id), src=paths[key], encodedSrc=src ? encodeURI(src) : null;
     if(!encodedSrc){

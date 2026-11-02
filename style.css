@@ -547,6 +547,22 @@ header {
     z-index: 2;
 }
 
+#previewStage #prevBase,
+#previewStage #prevColor {
+    transition: transform 650ms cubic-bezier(.2, .75, .25, 1);
+    transform-origin: center;
+}
+
+#previewStage[data-size="head"] #prevBase,
+#previewStage[data-size="head"] #prevColor {
+    transform: translate(-15.4%, 144%) scale(4.4);
+}
+
+#previewStage[data-size="half"] #prevBase,
+#previewStage[data-size="half"] #prevColor {
+    transform: translate(-15.6%, 68.2%) scale(2.65);
+}
+
 .preview-placeholder {
     position: relative;
     z-index: 1;
