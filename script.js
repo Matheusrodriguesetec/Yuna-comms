@@ -1,10 +1,8 @@
-// ===== PERSONALIZE AQUI =====
-// Os valores abaixo são provisórios: confirme sua tabela antes de publicar.
 const PRICES = {
-  sketch: { head: 15, half: 20, full: 25 },
-  lineart: { head: 25, half: 35, full: 45 },
-  color: { none: 0, bw: 5, color: 10 },
-  bg: { none: 0, simple: 10, detailed: 25 },
+  sketch: { head: 10, half: 20, full: 25 },
+  lineart: { head: 20, half: 30, full: 35 },
+  color: { none: 0, bw: 5, color: 12 },
+  bg: { none: 0, simple: 10, detailed: 28 },
   extraCharacterRate: 0.25
 };
 const state = {style:"sketch",size:"head",color:"none",bg:"none"};
