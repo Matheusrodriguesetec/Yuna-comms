@@ -1094,6 +1094,90 @@ footer {
         width: min(100% - 28px, var(--max));
     }
 
+    .calc-layout {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 8px;
+    }
+
+    .calc-layout > .panel,
+    .calc-layout .preview-box > .panel {
+        min-width: 0;
+        padding: 8px;
+    }
+
+    .calc-layout .field {
+        margin-bottom: 14px;
+    }
+
+    .calc-layout .field-title {
+        display: block;
+        font-size: .78rem;
+    }
+
+    .calc-layout .field-title small {
+        display: block;
+        margin-top: 2px;
+        font-size: .68rem;
+    }
+
+    .calc-layout .choices {
+        gap: 4px;
+    }
+
+    .calc-layout .choice {
+        max-width: 100%;
+        padding: 6px 7px;
+        font-size: .68rem;
+        overflow-wrap: anywhere;
+    }
+
+    .calc-layout .stepper {
+        flex-wrap: wrap;
+        gap: 6px;
+        font-size: .7rem;
+    }
+
+    .calc-layout .stepper input {
+        width: 48px;
+    }
+
+    .calc-layout .preview-caption {
+        display: block;
+        font-size: .68rem;
+        overflow-wrap: anywhere;
+    }
+
+    .calc-layout .price-card {
+        padding: 8px;
+    }
+
+    .calc-layout .price-label,
+    .calc-layout .price-note {
+        font-size: .68rem;
+        overflow-wrap: anywhere;
+    }
+
+    .calc-layout .price {
+        font-size: clamp(1.15rem, 5vw, 1.4rem);
+    }
+
+    .calc-layout .breakdown {
+        font-size: .64rem;
+        overflow-wrap: anywhere;
+    }
+
+    .calc-layout .break-row {
+        gap: 4px;
+    }
+
+    .calc-layout .break-row strong {
+        white-space: nowrap;
+    }
+
+    .calc-layout .calc-actions {
+        flex-direction: column;
+    }
+
     .section {
         padding: 55px 0;
     }
