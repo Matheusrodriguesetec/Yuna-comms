@@ -4,6 +4,8 @@ Ilustrações feitas sob encomenda. Conheça meu trabalho, simule um orçamento 
 
 **[Acessar o site](https://matheusrodriguesetec.github.io/Yuna-comms/)**
 
+Mesmo eu tendo o conhecimento para criar um projeto como esse, O SITE FOI FEITO COM FORTE BASE EM I.A mas nenhuma das minhas artes são feitas com I.A's (também não há assistencia)
+
 ## Conheça o portfólio
 
 Veja exemplos de trabalhos nas categorias **sem cor**, **colorido** e **retratos de OCs**. Clique em uma imagem para ampliá-la; no celular, use o gesto de pinça para ajustar o zoom.

@@ -21,7 +21,6 @@ const previewFiles = {
 };
 const brl = n => n.toLocaleString("pt-BR",{style:"currency",currency:"BRL"});
 const $ = id => document.getElementById(id);
-const discordInvite = $("contactButton").href;
 
 function updatePreview(){
   const styleFolder = previewFiles.style[state.style];
@@ -131,17 +130,8 @@ $("resetCalc").addEventListener("click",()=>{
 $("sendQuote").addEventListener("click",()=>{
   const p=calculate();
   const msg=`Olá Yuna_S22! Vim do seu site de comissão.\nMeu set é:\nEstilo: ${labels.style[state.style]}\nEnquadramento: ${labels.size[state.size]}\nColoração: ${labels.color[state.color]}\nCenário: ${labels.bg[state.bg]}\nPersonagens adicionais: ${p.extras}\nPreço estimado: ${brl(p.total)}`;
-  const button=$("sendQuote");
-  const originalLabel=button.textContent;
-  const discordTab=window.open(discordInvite,"_blank");
-  if(discordTab) discordTab.opener=null;
-  if(!discordTab) window.location.assign(discordInvite);
-
-  const showCopyResult=copied=>{
-    button.textContent=copied?"Copiado! Cole no Discord":"Não foi possível copiar";
-    if(!copied) window.prompt("Copie sua mensagem para enviar no Discord:",msg);
-    setTimeout(()=>{button.textContent=originalLabel;},4000);
-  };
+  const contactUrl="https://matheusrodriguesetec.github.io/Yuna-comms/#contato";
+  const goToContact=()=>window.location.assign(contactUrl);
   const fallbackCopy=()=>{
     const textarea=document.createElement("textarea");
     textarea.value=msg;
@@ -159,16 +149,20 @@ $("sendQuote").addEventListener("click",()=>{
     }
     return copied;
   };
+  const copyAndContinue=copied=>{
+    if(!copied) window.prompt("Não foi possível copiar automaticamente. Copie sua mensagem:",msg);
+    goToContact();
+  };
   if(navigator.clipboard?.writeText){
     navigator.clipboard.writeText(msg).then(
-      ()=>showCopyResult(true),
+      ()=>copyAndContinue(true),
       error=>{
         console.error("Não foi possível copiar o orçamento:",error);
-        showCopyResult(fallbackCopy());
+        copyAndContinue(fallbackCopy());
       }
     );
   }else{
-    showCopyResult(fallbackCopy());
+    copyAndContinue(fallbackCopy());
   }
 });
 calculate();
